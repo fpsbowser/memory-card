@@ -8,8 +8,8 @@ const Card = (props) => {
     border: "1px solid green",
   };
 
-  const handleclick = (e) => {
-    props.handleclick(e);
+  const handleclick = (id) => {
+    props.handleclick(id);
   };
 
   return (
@@ -21,8 +21,8 @@ const Card = (props) => {
             className={"card"}
             id={card.item}
             style={devStyle}
-            onClick={(e) => {
-              handleclick(e);
+            onClick={() => {
+              handleclick(card.item);
             }}
           >
             <img
