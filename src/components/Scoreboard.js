@@ -12,6 +12,7 @@ const Scoreboard = (props) => {
       <h3>Scoreboard</h3>
       <p id="score">Score: {score}</p>
       <p id="best-score">Best Score: {bestScore}</p>
+      <p id="max-score">Max Score: 30</p>
     </div>
   );
 };
