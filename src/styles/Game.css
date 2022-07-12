@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "runescape";
+  src: url("../font/runescape-chat-bold-07-webfont.woff2") format("woff2"),
+    url("../font/runescape-chat-bold-07-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "runescape", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header-container {
+  background-color: rgb(0, 0, 0);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 4fr 1fr;
+}
