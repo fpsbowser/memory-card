@@ -1,26 +1,20 @@
 import React from "react";
 import uniqid from "uniqid";
+import "../styles/Card.css";
 
 const Card = (props) => {
-  const devStyle = {
-    width: "150px",
-    height: "175px",
-    border: "1px solid green",
-  };
-
   const handleclick = (id) => {
     props.handleclick(id);
   };
 
   return (
-    <div>
+    <div className="gameboard">
       {props.items.map((card) => {
         return (
           <div
             key={uniqid()}
             className={"card"}
             id={card.item}
-            style={devStyle}
             onClick={() => {
               handleclick(card.item);
             }}
@@ -31,7 +25,9 @@ const Card = (props) => {
               width={"100%"}
               height={"100%"}
             />
-            <p id="item-name"></p>
+            <div id="item-text">
+              <p>{card.item}</p>
+            </div>
           </div>
         );
       })}

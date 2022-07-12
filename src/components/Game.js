@@ -3,8 +3,8 @@ import uniqid from "uniqid";
 import Gameboard from "./Gameboard";
 import Header from "./Header";
 import Scoreboard from "./Scoreboard";
+import "../styles/Game.css";
 
-//Control game flow
 const Game = () => {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
@@ -12,141 +12,140 @@ const Game = () => {
   const [items, setItems] = useState([
     {
       id: uniqid(),
-      item: "abyssalWhip",
+      item: "Abyssal Whip",
       path: require("../assets/1024px-Abyssal_whip_detail.png"),
     },
     {
-      item: "arcane",
+      item: "Arcane",
       path: require("../assets/1024px-Arcane_spirit_shield_detail.png"),
     },
     {
-      item: "archersRing",
+      item: "Archers Ring",
       path: require("../assets/1024px-Archers_ring_(i)_detail.png"),
     },
     {
-      item: "bandosTassets",
+      item: "Bandos Tassets",
       path: require("../assets/1024px-Bandos_tassets_detail.png"),
     },
     {
-      item: "divineSuper",
+      item: "4 Dose Divine Super",
       path: require("../assets/1024px-Divine_super_combat_potion(4)_detail.png"),
     },
     {
-      item: "elysian",
+      item: "Elysian",
       path: require("../assets/1024px-Elysian_spirit_shield_detail.png"),
     },
     {
-      item: "3rdAgePick",
+      item: "3rd Age Pick",
       path: require("../assets/1280px-3rd_age_pickaxe_detail.png"),
     },
     {
-      item: "abyssalDagger",
+      item: "Abyssal Dagger",
       path: require("../assets/1280px-Abyssal_dagger_detail.png"),
     },
     {
-      item: "ancestralTop",
+      item: "Ancestral Top",
       path: require("../assets/1280px-Ancestral_robe_top_detail.png"),
     },
     {
-      item: "ags",
+      item: "AGS",
       path: require("../assets/1280px-Armadyl_godsword_detail.png"),
     },
     {
-      item: "bgs",
+      item: "BGS",
       path: require("../assets/1280px-Bandos_godsword_detail.png"),
     },
     {
-      item: "berserkerRing",
+      item: "Berserker Ring",
       path: require("../assets/1280px-Berserker_ring_(i)_detail.png"),
     },
     {
-      item: "bladeOfSaeldor",
+      item: "Blade Of Saeldor",
       path: require("../assets/1280px-Blade_of_saeldor_detail.png"),
     },
     {
-      item: "corruptedBladeOfSaeldor",
+      item: "Blade Of Saeldor (c)",
       path: require("../assets/1280px-Blade_of_saeldor_(c)_detail.png"),
     },
     {
-      item: "bloodRune",
+      item: "Blood Rune",
       path: require("../assets/1280px-Blood_rune_detail.png"),
     },
     {
-      item: "corruptedBowfa",
+      item: "Bow of faerdhinen (c)",
       path: require("../assets/1280px-Bow_of_faerdhinen_(c)_detail.png"),
     },
     {
-      item: "fireRune",
+      item: "Fire Rune",
       path: require("../assets/1280px-Fire_rune_detail.png"),
     },
     {
-      item: "laveRune",
+      item: "Lave Rune",
       path: require("../assets/1280px-Lava_rune_detail.png"),
     },
     {
-      item: "sgs",
+      item: "SGS",
       path: require("../assets/1280px-Saradomin_godsword_detail.png"),
     },
     {
-      item: "shrimps",
+      item: "Shrimps",
       path: require("../assets/1280px-Shrimps_detail.png"),
     },
     {
-      item: "twistedBow",
+      item: "Twisted Bow",
       path: require("../assets/1280px-Twisted_bow_detail.png"),
     },
     {
-      item: "zgs",
+      item: "ZGS",
       path: require("../assets/1280px-Zamorak_godsword_detail.png"),
     },
     {
-      item: "torture",
+      item: "Amulet of Torture",
       path: require("../assets/800px-Amulet_of_torture_detail.png"),
     },
     {
-      item: "bandosChestplate",
+      item: "Bandos Chestplate",
       path: require("../assets/800px-Bandos_chestplate_detail.png"),
     },
     {
-      item: "2DoseSuper",
+      item: "2 Dose Super Combat",
       path: require("../assets/800px-Super_combat_potion(2)_detail.png"),
     },
     {
-      item: "4DoseSuper",
+      item: "4 Dose Super Combat",
       path: require("../assets/800px-Super_combat_potion(4)_detail.png"),
     },
     {
-      item: "ancestralBottom",
+      item: "Ancestral Bottom",
       path: require("../assets/Ancestral_robe_bottom_detail.png"),
     },
     {
-      item: "anguish",
+      item: "Necklace of Anguish",
       path: require("../assets/Necklace_of_anguish_detail.png"),
     },
     {
-      item: "suffering",
+      item: "Ring of Suffering",
       path: require("../assets/Ring_of_suffering_detail.png"),
     },
     {
-      item: "tormented",
+      item: "Tormented Bracelet",
       path: require("../assets/Tormented_bracelet_detail.png"),
     },
   ]);
-
-  console.table(playerMemory);
 
   useEffect(() => {
     setItems([...scramble(items)]);
   }, []);
 
   useEffect(() => {
-    console.log("playermemory updated");
+    // console.log("playermemory updated");
     setScore(playerMemory.length);
   }, [playerMemory]);
 
   useEffect(() => {
-    console.log("score updated");
+    // console.log("score updated");
     if (score === 30) {
+      setBestScore(score);
       restartGame();
       alert("You have big brain. Touch grass");
     } else if (score >= bestScore) {
@@ -161,17 +160,16 @@ const Game = () => {
 
   const checkPlayerArray = (array, id) => {
     if (!array.includes(id)) {
-      setPlayerMemory(playerMemory.concat([id]));
       setScore(score + 1);
+      setPlayerMemory(playerMemory.concat([id]));
     } else {
       console.log("Duplicate");
-      setScore(0);
-      setPlayerMemory([]);
+      restartGame();
     }
   };
 
   function handleclick(id) {
-    console.log(id);
+    // console.log(id);
     checkPlayerArray(playerMemory, id);
     setItems([...scramble(items)]);
   }
@@ -191,7 +189,7 @@ const Game = () => {
 
   return (
     <div className="game-container">
-      <div className="header container">
+      <div className="header-container">
         <Header />
         <Scoreboard
           score={score}
@@ -200,13 +198,7 @@ const Game = () => {
           setBestScore={setBestScore}
         />
       </div>
-      <div className="gameboard-container">
-        <Gameboard
-          scramble={scramble}
-          handleclick={handleclick}
-          items={items}
-        />
-      </div>
+      <Gameboard scramble={scramble} handleclick={handleclick} items={items} />
     </div>
   );
 };
