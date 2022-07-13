@@ -22,8 +22,8 @@ const Card = (props) => {
             <img
               src={card.path}
               alt={card.item}
-              width={"100%"}
-              height={"100%"}
+              width={"160px"}
+              height={"188px"}
             />
             <div id="item-text">
               <p>{card.item}</p>
