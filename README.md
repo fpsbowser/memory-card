@@ -13,5 +13,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Bugs/Issues
 
-Currently there are some issues with displaying the cards in all browsers but **Firefox**.
-The game will still work correctly with any browser but **I recommend using Firefox to avoid weird visual bugs.**
+~~Currently there are some issues with displaying the cards in all browsers but **Firefox**.
+The game will still work correctly with any browser but **I recommend using Firefox to avoid weird visual bugs.**~~
